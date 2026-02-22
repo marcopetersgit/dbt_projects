@@ -35,5 +35,5 @@ dbt_02_21_26_profile:
       timeout_seconds: 300
       location: 'US'
       priority: interactive
-      keyfile:  '/home/hanse/Documents/BigQuery/keyfile.json'
+      keyfile: '/home/hanse/Documents/BigQuery/keyfile.json'
 

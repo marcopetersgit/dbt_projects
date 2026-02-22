@@ -1549,3 +1549,33 @@ select * from final;
 Finished 'run' successfully for target 'dev' [9.6s]
 Processed: 1 model
 Summary: 1 total | 1 success
+==================== 2026-02-22T21:02:13.273467Z | 019c8728-f117-7922-ae1f-46a6d2e69ca8 ====================
+21:02:13.273592 [info ]: dbt-fusion 2.0.0-preview.126
+21:02:13.273917 [info ]: Started loading project
+21:02:13.278558 [info ]: Loading profiles.yml
+21:02:13.278911 [info ]: Finished loading project [  0.00s]
+21:02:13.286392 [error]: dbt1013: YAML error: mapping values are not allowed in this context at line 3 column 9
+  --> profiles.yml:3:9
+21:02:13.419829 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 error [146ms]
+==================== 2026-02-22T21:04:59.481514Z | 019c872b-7a54-7b30-8f9e-aaef8de8e672 ====================
+21:04:59.482044 [info ]: dbt-fusion 2.0.0-preview.126
+21:04:59.482919 [info ]: Started loading project
+21:04:59.491812 [info ]: Loading profiles.yml
+21:04:59.492170 [info ]: Finished loading project [  0.01s]
+21:04:59.492406 [error]: dbt1013: YAML error: mapping values are not allowed in this context at line 3 column 9
+  --> profiles.yml:3:9
+21:04:59.630251 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 error [148ms]
+==================== 2026-02-22T21:05:33.709004Z | 019c872c-0007-7fb2-8142-c9fcdde52cb6 ====================
+21:05:33.709404 [info ]: dbt-fusion 2.0.0-preview.126
+21:05:33.710182 [info ]: Started loading project
+21:05:33.724920 [info ]: Loading profiles.yml
+21:05:33.725926 [info ]: Finished loading project [  0.02s]
+21:05:33.726481 [error]: dbt1013: YAML error: mapping values are not allowed in this context at line 3 column 9
+  --> profiles.yml:3:9
+21:05:33.890936 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 error [181ms]
