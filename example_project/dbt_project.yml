@@ -25,17 +25,19 @@ clean-targets:
 models:
   example_analytics:
     # Config indicated by + and applies to all files under models/staging/
+    
     staging:
       +materialized: view
       +schema: staging
       +tags: [staging]
+    
+    prod:
+      +materialized: view
+      +schema: prod
+      +tags: [prod]
     # Config indicated by + and applies to all files under models/marts/
+    
     marts:
       +materialized: table
       +schema: marts
       +tags: [marts]
-
-seeds:
-  example_analytics:
-    +schema: seeds
-    +tags: [seed]

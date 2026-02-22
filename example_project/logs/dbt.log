@@ -1,0 +1,1151 @@
+[0m15:37:12.579047 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a93eb38d70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a93e0b3c80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a93ee70170>]}
+
+
+============================== 15:37:12.586405 | b8474869-42ba-4161-b8a0-27dd1733e636 ==============================
+[0m15:37:12.586405 [info ] [MainThread]: Running with dbt=1.11.6
+[0m15:37:12.588151 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'indirect_selection': 'eager', 'warn_error': 'None', 'use_colors': 'True', 'no_print': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'invocation_command': 'dbt debug', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'version_check': 'True', 'target_path': 'None', 'log_format': 'default', 'write_json': 'True', 'profiles_dir': '/home/hanse/Documents/dbt_projects/DBT_PROJECTS/example_project', 'empty': 'None', 'printer_width': '80', 'send_anonymous_usage_stats': 'True', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'log_path': '/home/hanse/Documents/dbt_projects/DBT_PROJECTS/example_project/logs', 'static_parser': 'True', 'fail_fast': 'False', 'quiet': 'False', 'partial_parse': 'True'}
+[0m15:37:12.614049 [info ] [MainThread]: dbt version: 1.11.6
+[0m15:37:12.615553 [info ] [MainThread]: python version: 3.12.3
+[0m15:37:12.616867 [info ] [MainThread]: python path: /home/hanse/Documents/dbt_projects/virtualenv/bin/python3.12
+[0m15:37:12.618155 [info ] [MainThread]: os info: Linux-6.17.0-14-generic-x86_64-with-glibc2.39
+[0m15:37:19.489354 [error] [MainThread]: Encountered an error:
+
+[0m15:37:19.507248 [error] [MainThread]: Traceback (most recent call last):
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/cli/requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/cli/requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/cli/main.py", line 420, in debug
+    results = task.run()
+              ^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/task/debug.py", line 114, in run
+    load_profile_status: SubtaskStatus = self._load_profile()
+                                         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/task/debug.py", line 205, in _load_profile
+    profile: Profile = Profile.render(
+                       ^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/config/profile.py", line 404, in render
+    return cls.from_raw_profiles(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/config/profile.py", line 370, in from_raw_profiles
+    return cls.from_raw_profile_info(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/config/profile.py", line 326, in from_raw_profile_info
+    credentials: Credentials = cls._credentials_from_profile(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/config/profile.py", line 150, in _credentials_from_profile
+    cls = load_plugin(typename)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/adapters/factory.py", line 239, in load_plugin
+    return FACTORY.load_plugin(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/adapters/factory.py", line 68, in load_plugin
+    mod: Any = import_module("." + name, "dbt.adapters")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/adapters/bigquery/__init__.py", line 4, in <module>
+    from dbt.adapters.bigquery.impl import BigQueryAdapter, GrantTarget, PartitionConfig
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/adapters/bigquery/impl.py", line 70, in <module>
+    from dbt.adapters.bigquery.python_submissions import (
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/dbt/adapters/bigquery/python_submissions.py", line 28, in <module>
+    from google.cloud.aiplatform import gapic as aiplatform_gapic
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/google/cloud/aiplatform/__init__.py", line 34, in <module>
+    from google.cloud.aiplatform import gapic
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/google/cloud/aiplatform/gapic/__init__.py", line 20, in <module>
+    from google.cloud.aiplatform.gapic import schema
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/google/cloud/aiplatform/gapic/schema/__init__.py", line 18, in <module>
+    from google.cloud.aiplatform.v1.schema import predict
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/google/cloud/aiplatform/v1/schema/__init__.py", line 18, in <module>
+    from google.cloud.aiplatform.v1.schema import predict
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/google/cloud/aiplatform/v1/schema/predict/__init__.py", line 20, in <module>
+    from google.cloud.aiplatform.v1.schema.predict import prediction
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/google/cloud/aiplatform/v1/schema/predict/prediction/__init__.py", line 23, in <module>
+    from google.cloud.aiplatform.v1.schema.predict.prediction_v1.types.classification import (
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/google/cloud/aiplatform/v1/schema/predict/prediction_v1/__init__.py", line 47, in <module>
+    api_core.check_python_version("google.cloud.aiplatform.v1.schema.predict.prediction_v1")  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/google/api_core/_python_version_support.py", line 210, in check_python_version
+    package_label, _ = _get_distribution_and_import_packages(package)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/google/api_core/_python_version_support.py", line 189, in _get_distribution_and_import_packages
+    distribution_package = _get_pypi_package_name(import_package)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/google/api_core/_python_version_support.py", line 171, in _get_pypi_package_name
+    module_to_distributions = metadata.packages_distributions()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/metadata/__init__.py", line 947, in packages_distributions
+    for pkg in _top_level_declared(dist) or _top_level_inferred(dist):
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/metadata/__init__.py", line 959, in _top_level_inferred
+    for f in always_iterable(dist.files)
+                             ^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/importlib_metadata/__init__.py", line 604, in files
+    return skip_missing_files(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/importlib_metadata/_functools.py", line 103, in wrapper
+    return func(param, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/importlib_metadata/__init__.py", line 602, in skip_missing_files
+    return list(filter(lambda path: path.locate().exists(), package_paths))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/hanse/Documents/dbt_projects/virtualenv/lib/python3.12/site-packages/importlib_metadata/__init__.py", line 602, in <lambda>
+    return list(filter(lambda path: path.locate().exists(), package_paths))
+                                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 862, in exists
+    self.stat(follow_symlinks=follow_symlinks)
+  File "/usr/lib/python3.12/pathlib.py", line 842, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+[0m15:37:19.510460 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 7.0598645, "process_in_blocks": "184", "process_kernel_time": 1.522885, "process_mem_max_rss": "377116", "process_out_blocks": "32", "process_user_time": 8.250125}
+[0m15:37:19.511872 [debug] [MainThread]: Command `dbt debug` failed at 15:37:19.511651 after 7.06 seconds
+[0m15:37:19.512877 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a93e001850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a91ba0f650>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71a91c7ba720>]}
+[0m15:37:19.513937 [debug] [MainThread]: Flushing usage events
+[0m15:37:19.694065 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:37:23.727488 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72b974fafd70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72b975a423c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72b974fae660>]}
+
+
+============================== 15:37:23.731777 | 362c5621-9d0e-45bb-9744-aa603a665bf2 ==============================
+[0m15:37:23.731777 [info ] [MainThread]: Running with dbt=1.11.6
+[0m15:37:23.732556 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'invocation_command': 'dbt parse --quiet', 'introspect': 'True', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'empty': 'None', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'write_json': 'True', 'use_colors': 'True', 'version_check': 'True', 'warn_error': 'None', 'profiles_dir': '/home/hanse/Documents/dbt_projects/DBT_PROJECTS/example_project', 'indirect_selection': 'eager', 'fail_fast': 'False', 'log_path': '/home/hanse/Documents/dbt_projects/DBT_PROJECTS/example_project/logs', 'quiet': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'printer_width': '80', 'target_path': 'None', 'static_parser': 'True', 'log_format': 'default'}
+==================== 2026-02-21T21:27:59.627443Z | 019c821a-2d89-7b93-830f-6e7856126c7b ====================
+21:27:59.627591 [info ]: dbt-fusion 2.0.0-preview.126
+21:27:59.627927 [info ]: Started loading project
+21:27:59.632672 [info ]: Loading profiles.yml
+21:27:59.651928 [info ]:    Started resolving packages from packages.yml
+21:27:59.774204 [warn ]: dbt1065: Package 'dbt_utils' requires dbt version [>=1.3.0, <2.0.0], but current version is 2.0.0-preview.126. This package may not be compatible with your dbt version.
+21:27:59.774318 [info ]:     Failed [  0.12s] resolving packages from packages.yml (error: Package not found in hub registry: 'dbt-labs/dbt_expectations')
+21:27:59.774636 [info ]: Finished loading project [  0.15s]
+21:27:59.774704 [error]: dbt1005: Package not found in hub registry: 'dbt-labs/dbt_expectations'
+21:27:59.893340 [info ]: 
+==================== Execution Summary =====================
+Finished 'deps' with 1 warning and 1 error [265ms]
+==================== 2026-02-21T21:28:09.016674Z | 019c821a-5236-78e0-b44c-6b9a10085e88 ====================
+21:28:09.016998 [info ]: dbt-fusion 2.0.0-preview.126
+21:28:09.018737 [info ]: Started loading project
+21:28:09.025896 [info ]: Loading profiles.yml
+21:28:09.049690 [info ]: Loading packages.yml
+21:28:09.050206 [info ]: Installing packages
+21:28:09.068358 [info ]: Installing dbt-labs/dbt_utils
+21:28:09.244203 [warn ]: dbt1065: Updated version available for dbt_utils@1.1.1: 1.3.3
+21:28:09.511445 [info ]:  Installed dbt-labs/dbt_utils: 1.1.1
+21:28:09.511691 [info ]: Installing dbt-labs/codegen
+21:28:09.521905 [warn ]: dbt1065: Updated version available for codegen@0.12.0: 0.14.0
+21:28:09.647888 [info ]:  Installed dbt-labs/codegen: 0.12.0
+21:28:09.648261 [info ]:  Installed 2 packages
+21:28:09.648665 [info ]: Finished loading project [  0.63s]
+21:28:09.881612 [info ]: 
+==================== Execution Summary =====================
+Finished 'deps' with 2 warnings for target 'dev' [864ms]
+==================== 2026-02-21T22:37:14.443967Z | 019c8259-9349-7b61-9c55-d1c9efccd6a1 ====================
+22:37:14.444116 [info ]: dbt-fusion 2.0.0-preview.126
+22:37:14.444796 [info ]: Started loading project
+22:37:14.450292 [info ]: Loading profiles.yml
+22:37:14.470871 [info ]: Loading packages.yml
+22:37:14.471315 [debug]:    Started loading packages
+22:37:14.477475 [debug]:     Loaded [  0.01s] packages
+22:37:14.478780 [info ]: Finished loading project [  0.03s]
+22:37:14.479719 [info ]: Started parsing
+22:37:14.602773 [debug]: Finished parsing models/schema.yml [  0.00s]
+22:37:14.605960 [debug]: Finished parsing models/customers.sql [  0.00s]
+22:37:14.608407 [info ]: Finished parsing [  0.13s]
+22:37:14.608725 [info ]: Started scheduling
+22:37:14.609285 [info ]: Finished scheduling [  0.00s]
+22:37:14.612250 [info ]: Started deferring state
+22:37:14.612371 [info ]: Finished deferring state [  0.00s]
+22:37:14.614215 [info ]: Started downloading schemas
+22:37:14.614309 [debug]:    Started downloading relations
+22:37:14.614453 [debug]:   Finished [  0.00s] downloading relations
+22:37:14.614488 [info ]: Finished downloading schemas [  0.00s]
+22:37:14.927060 [info ]: Started building task graph
+22:37:14.927252 [info ]: Finished building task graph [  0.00s]
+22:37:18.754662 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "example_analytics", "target_name": "dev"} */
+
+    select distinct schema_name from `dbt-bigquery-integration`.INFORMATION_SCHEMA.SCHEMATA;
+  
+22:37:18.755830 [info ]: Started rendering (1 nodes)
+22:37:18.756065 [info ]: Started model dbt_02_21_26.customers
+22:37:18.756127 [debug]: Started rendering model dbt_02_21_26.customers
+22:37:18.758801 [debug]: Compiled SQL for node model.dbt_02_21_26_project.customers at target/compiled/models/customers.sql
+22:37:18.758919 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.customers [success]
+22:37:18.759043 [info ]: Finished rendering [  0.00s] (1 nodes, 0 skipped, 0 errors)
+22:37:18.759153 [info ]: Started analyzing (1 nodes)
+22:37:18.759269 [debug]: Started analyzing model dbt_02_21_26.customers
+22:37:19.093620 [debug]: Schema hydration: registering 1 schemas from db_runner
+22:37:19.093645 [debug]: Schema hydration: parsing FQN string '`dbt-bigquery-integration`.`dbt_02_21_26`.`customers`'
+22:37:19.093665 [debug]: Schema hydration: registering cfqn=dbt-bigquery-integration.dbt_02_21_26.customers (catalog='dbt-bigquery-integration', schema='dbt_02_21_26', table='customers')
+22:37:19.094010 [debug]: Schema hydration: registration succeeded for dbt-bigquery-integration.dbt_02_21_26.customers, exists_check=true
+22:37:19.108736 [debug]: Finished analyzing [  0.35s] model dbt_02_21_26.customers [success]
+22:37:19.108811 [info ]: Finished analyzing [  0.35s] (1 nodes, 0 skipped, 0 errors)
+22:37:19.108884 [info ]: Started running (1 nodes)
+22:37:19.108943 [debug]: Started running model dbt_02_21_26.customers
+22:37:22.424646 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+22:37:22.429419 [error]: dbt1501: Error executing materialization macro 'dbt_bigquery.materialization_view_bigquery' for model model.dbt_02_21_26_project.customers: Failed to eval the compiled Jinja expression invalid operation: Compilation Error: Trying to create view `dbt-bigquery-integration`.`dbt_02_21_26`.`customers`, but it currently exists as a table. Either drop `dbt-bigquery-integration`.`dbt_02_21_26`.`customers` manually, or run dbt with `--full-refresh` and dbt will drop it for you.
+(in compiled/models/customers.sql:1:13)
+(in dbt_internal_packages/dbt-bigquery/macros/materializations/view.sql:15:24)
+(in dbt_internal_packages/dbt-bigquery/macros/relations/view/replace.sql:29:5)
+(in dbt_internal_packages/dbt-bigquery/macros/relations/view/replace.sql:48:5)
+(in dbt_internal_packages/dbt-bigquery/macros/materializations/view.sql:6:7)
+  --> compiled/models/customers.sql:1:13
+22:37:22.429864 [info ]:     Failed [  3.67s] model dbt_02_21_26.customers (view)
+22:37:22.430297 [debug]: Finished running [  3.32s] model dbt_02_21_26.customers [error]
+22:37:22.430760 [info ]: Finished running [  3.32s] (1 nodes, 0 skipped, 1 errors)
+22:37:22.531372 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 error for target 'dev' [8.1s]
+Processed: 1 model
+Summary: 1 total | 1 error
+==================== 2026-02-22T13:42:00.420682Z | 019c8595-e9da-7a02-9dee-64199282191e ====================
+13:42:00.420823 [info ]: dbt-fusion 2.0.0-preview.126
+13:42:00.421111 [info ]: Started loading project
+13:42:00.424789 [info ]: Loading profiles.yml
+13:42:00.442437 [info ]: Loading packages.yml
+13:42:00.442799 [debug]:    Started loading packages
+13:42:00.447772 [debug]:     Loaded [  0.00s] packages
+13:42:00.448851 [info ]: Finished loading project [  0.03s]
+13:42:00.449402 [info ]: Started parsing
+13:42:00.539093 [debug]: Finished parsing models/schema.yml [  0.00s]
+13:42:00.542763 [info ]: Finished parsing [  0.09s]
+13:42:00.543935 [info ]: Started scheduling
+13:42:00.544092 [info ]: Finished scheduling [  0.00s]
+13:42:00.544144 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+13:42:00.545397 [info ]: Started deferring state
+13:42:00.545445 [info ]: Finished deferring state [  0.00s]
+13:42:00.546812 [info ]: Started downloading schemas
+13:42:00.546861 [debug]:    Started downloading relations
+13:42:00.546952 [debug]:   Finished [  0.00s] downloading relations
+13:42:00.546994 [info ]: Finished downloading schemas [  0.00s]
+13:42:00.859855 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 warning for target 'dev' [439ms]
+==================== 2026-02-22T13:48:26.471890Z | 019c859b-cde6-79e0-b43d-e05e55760562 ====================
+13:48:26.472025 [info ]: dbt-fusion 2.0.0-preview.126
+13:48:26.472303 [info ]: Started loading project
+13:48:26.476218 [info ]: Loading profiles.yml
+13:48:26.494224 [info ]: Loading packages.yml
+13:48:26.494485 [debug]:    Started loading packages
+13:48:26.498917 [debug]:     Loaded [  0.00s] packages
+13:48:26.500054 [info ]: Finished loading project [  0.03s]
+13:48:26.500817 [info ]: Started parsing
+13:48:26.584730 [debug]: Finished parsing models/schema.yml [  0.00s]
+13:48:26.587481 [info ]: Finished parsing [  0.09s]
+13:48:26.587935 [info ]: Started scheduling
+13:48:26.588055 [info ]: Finished scheduling [  0.00s]
+13:48:26.588086 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+13:48:26.589041 [info ]: Started deferring state
+13:48:26.589089 [info ]: Finished deferring state [  0.00s]
+13:48:26.590407 [info ]: Started downloading schemas
+13:48:26.590455 [debug]:    Started downloading relations
+13:48:26.590533 [debug]:   Finished [  0.00s] downloading relations
+13:48:26.590565 [info ]: Finished downloading schemas [  0.00s]
+13:48:27.006039 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 warning for target 'dev' [534ms]
+==================== 2026-02-22T14:30:16.203488Z | 019c85c2-196a-7bc1-af4e-cb8dbca74acd ====================
+14:30:16.211147 [info ]: dbt-fusion 2.0.0-preview.126
+14:30:16.221398 [info ]: Started loading project
+14:30:16.274288 [info ]: Loading profiles.yml
+14:30:16.348001 [info ]: Loading packages.yml
+14:30:16.354410 [debug]:    Started loading packages
+14:30:16.378872 [debug]:     Loaded [  0.02s] packages
+14:30:16.389761 [info ]: Finished loading project [  0.17s]
+14:30:16.398872 [info ]: Started parsing
+14:30:16.565252 [debug]: Finished parsing models/schema.yml [  0.01s]
+14:30:16.582127 [info ]: Finished parsing [  0.18s]
+14:30:16.592252 [info ]: Started scheduling
+14:30:16.596985 [info ]: Finished scheduling [  0.00s]
+14:30:16.597041 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+14:30:16.615282 [info ]: Started deferring state
+14:30:16.615373 [info ]: Finished deferring state [  0.00s]
+14:30:16.670527 [info ]: Started downloading schemas
+14:30:16.671735 [debug]:    Started downloading relations
+14:30:16.675063 [debug]:   Finished [  0.00s] downloading relations
+14:30:16.675437 [info ]: Finished downloading schemas [  0.00s]
+14:30:17.206236 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 warning for target 'dev' [1.0s]
+==================== 2026-02-22T14:33:41.660774Z | 019c85c5-3c1a-7ce0-8b7e-e84c8a001fdf ====================
+14:33:41.660940 [info ]: dbt-fusion 2.0.0-preview.126
+14:33:41.661087 [info ]: Started cleaning
+14:33:41.661203 [info ]: Started loading project
+14:33:41.663954 [info ]: Loading profiles.yml
+14:33:41.664755 [info ]: Finished loading project [  0.00s]
+14:33:41.674110 [info ]: Removing target
+14:33:41.677810 [info ]: Removing dbt_packages
+14:33:41.688486 [info ]: Finished cleaning [  0.03s]
+14:33:41.865065 [info ]: 
+==================== Execution Summary =====================
+Finished 'clean' successfully [204ms]
+==================== 2026-02-22T14:33:45.727297Z | 019c85c5-4bfc-76e1-a12e-cb06b98d9b15 ====================
+14:33:45.728023 [info ]: dbt-fusion 2.0.0-preview.126
+14:33:45.728357 [info ]: Started loading project
+14:33:45.733305 [info ]: Loading profiles.yml
+14:33:45.753912 [info ]: Loading packages.yml
+14:33:45.754258 [info ]: Installing packages
+14:33:45.770354 [info ]: Installing dbt-labs/codegen
+14:33:46.033414 [warn ]: dbt1065: Updated version available for codegen@0.12.0: 0.14.0
+14:33:46.342917 [info ]:  Installed dbt-labs/codegen: 0.12.0
+14:33:46.343458 [info ]: Installing dbt-labs/dbt_utils
+14:33:46.351598 [warn ]: dbt1065: Updated version available for dbt_utils@1.1.1: 1.3.3
+14:33:46.761443 [info ]:  Installed dbt-labs/dbt_utils: 1.1.1
+14:33:46.761864 [info ]:  Installed 2 packages
+14:33:46.762147 [debug]:    Started loading packages
+14:33:46.774279 [debug]:     Loaded [  0.01s] packages
+14:33:46.780670 [info ]: Finished loading project [  1.05s]
+14:33:46.782867 [info ]: Started parsing
+14:33:46.914658 [debug]: Finished parsing models/schema.yml [  0.00s]
+14:33:46.918789 [info ]: Finished parsing [  0.14s]
+14:33:46.919343 [info ]: Started scheduling
+14:33:46.919479 [info ]: Finished scheduling [  0.00s]
+14:33:46.919534 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+14:33:46.921292 [info ]: Started deferring state
+14:33:46.921541 [info ]: Finished deferring state [  0.00s]
+14:33:46.923237 [info ]: Started downloading schemas
+14:33:46.923361 [debug]:    Started downloading relations
+14:33:46.923499 [debug]:   Finished [  0.00s] downloading relations
+14:33:46.923573 [info ]: Finished downloading schemas [  0.00s]
+14:33:47.470880 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 3 warnings for target 'dev' [1.7s]
+==================== 2026-02-22T14:35:01.670537Z | 019c85c6-74a4-7512-8bea-e00aace001c4 ====================
+14:35:01.670692 [info ]: dbt-fusion 2.0.0-preview.126
+14:35:01.671333 [info ]: Started loading project
+14:35:01.675868 [info ]: Loading profiles.yml
+14:35:01.697382 [info ]:    Started resolving packages from packages.yml
+14:35:02.016149 [info ]:   Finished [  0.32s] resolving packages from packages.yml (2 items)
+14:35:02.017315 [debug]:    Started loading packages
+14:35:02.033889 [debug]:     Loaded [  0.02s] packages
+14:35:02.038059 [info ]: Finished loading project [  0.37s]
+14:35:02.040973 [info ]: Started parsing
+14:35:02.190724 [debug]: Finished parsing models/schema.yml [  0.00s]
+14:35:02.195124 [info ]: Finished parsing [  0.15s]
+14:35:02.195855 [info ]: Started scheduling
+14:35:02.195986 [info ]: Finished scheduling [  0.00s]
+14:35:02.196018 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+14:35:02.196880 [info ]: Started deferring state
+14:35:02.196926 [info ]: Finished deferring state [  0.00s]
+14:35:02.198190 [info ]: Started downloading schemas
+14:35:02.198232 [debug]:    Started downloading relations
+14:35:02.198331 [debug]:   Finished [  0.00s] downloading relations
+14:35:02.198370 [info ]: Finished downloading schemas [  0.00s]
+14:35:02.464240 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 warning for target 'dev' [793ms]
+==================== 2026-02-22T14:35:28.332518Z | 019c85c6-dcca-7f13-a2ff-bdd0892adc2a ====================
+14:35:28.332653 [info ]: dbt-fusion 2.0.0-preview.126
+14:35:28.332942 [info ]: Started loading project
+14:35:28.336900 [info ]: Loading profiles.yml
+14:35:28.353025 [info ]:    Started resolving packages from packages.yml
+14:35:28.761298 [info ]:   Finished [  0.41s] resolving packages from packages.yml (2 items)
+14:35:28.761658 [info ]: Installing packages
+14:35:28.790757 [info ]: Installing dbt-labs/codegen
+14:35:29.000491 [info ]:  Installed dbt-labs/codegen: 0.14.0
+14:35:29.000781 [info ]: Installing dbt-labs/dbt_utils
+14:35:29.349231 [info ]:  Installed dbt-labs/dbt_utils: 1.3.3
+14:35:29.350067 [info ]:  Installed 2 packages
+14:35:29.352039 [info ]: Finished loading project [  1.02s]
+14:35:29.600428 [info ]: 
+==================== Execution Summary =====================
+Finished 'deps' successfully for target 'dev' [1.3s]
+==================== 2026-02-22T14:35:34.381849Z | 019c85c6-f46b-7e12-a6e3-a617381063b4 ====================
+14:35:34.381965 [info ]: dbt-fusion 2.0.0-preview.126
+14:35:34.382178 [info ]: Started loading project
+14:35:34.385221 [info ]: Loading profiles.yml
+14:35:34.397861 [info ]: Loading packages.yml
+14:35:34.398038 [debug]:    Started loading packages
+14:35:34.401724 [debug]:     Loaded [  0.00s] packages
+14:35:34.402682 [info ]: Finished loading project [  0.02s]
+14:35:34.403209 [info ]: Started parsing
+14:35:34.485408 [debug]: Finished parsing models/schema.yml [  0.00s]
+14:35:34.488288 [info ]: Finished parsing [  0.09s]
+14:35:34.488964 [info ]: Started scheduling
+14:35:34.489093 [info ]: Finished scheduling [  0.00s]
+14:35:34.489118 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+14:35:34.490157 [info ]: Started deferring state
+14:35:34.490185 [info ]: Finished deferring state [  0.00s]
+14:35:34.491818 [info ]: Started downloading schemas
+14:35:34.491880 [debug]:    Started downloading relations
+14:35:34.491952 [debug]:   Finished [  0.00s] downloading relations
+14:35:34.491972 [info ]: Finished downloading schemas [  0.00s]
+14:35:34.978521 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 warning for target 'dev' [596ms]
+==================== 2026-02-22T14:41:43.845335Z | 019c85cc-97a3-71b3-a8ec-ea634c36ad6f ====================
+14:41:43.845495 [info ]: dbt-fusion 2.0.0-preview.126
+14:41:43.846016 [info ]: Started loading project
+14:41:43.848961 [info ]: Loading profiles.yml
+14:41:43.862410 [info ]: Loading packages.yml
+14:41:43.862676 [debug]:    Started loading packages
+14:41:43.867452 [debug]:     Loaded [  0.00s] packages
+14:41:43.868498 [info ]: Finished loading project [  0.02s]
+14:41:43.869160 [info ]: Started parsing
+14:41:43.968735 [debug]: Finished parsing models/schema.yml [  0.00s]
+14:41:43.983827 [debug]: Finished parsing models/dev/customers.sql [  0.01s]
+14:41:43.988595 [info ]: Finished parsing [  0.12s]
+14:41:43.989218 [info ]: Started scheduling
+14:41:43.989378 [info ]: Finished scheduling [  0.00s]
+14:41:43.992220 [info ]: Started deferring state
+14:41:43.992293 [info ]: Finished deferring state [  0.00s]
+14:41:43.995083 [info ]: Started downloading schemas
+14:41:43.995185 [debug]:    Started downloading relations
+14:41:43.995309 [debug]:   Finished [  0.00s] downloading relations
+14:41:43.995360 [info ]: Finished downloading schemas [  0.00s]
+14:41:44.245654 [info ]: Started building task graph
+14:41:44.258035 [info ]: Finished building task graph [  0.01s]
+14:41:47.589283 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "example_analytics", "target_name": "dev"} */
+
+    select distinct schema_name from `dbt-bigquery-integration`.INFORMATION_SCHEMA.SCHEMATA;
+  
+14:41:47.604473 [info ]: Started rendering (1 nodes)
+14:41:47.606236 [info ]: Started model dbt_02_21_26.customers
+14:41:47.606390 [debug]: Started rendering model dbt_02_21_26.customers
+14:41:47.617176 [debug]: Compiled SQL for node model.dbt_02_21_26_project.customers at target/compiled/models/dev/customers.sql
+14:41:47.617987 [debug]: Finished rendering [  0.01s] model dbt_02_21_26.customers [success]
+14:41:47.618203 [info ]: Finished rendering [  0.01s] (1 nodes, 0 skipped, 0 errors)
+14:41:47.619544 [info ]: Started analyzing (1 nodes)
+14:41:47.619740 [debug]: Started analyzing model dbt_02_21_26.customers
+14:41:48.554887 [debug]: Schema hydration: registering 2 schemas from db_runner
+14:41:48.554939 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`orders`'
+14:41:48.554995 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.orders (catalog='dbt-tutorial', schema='jaffle_shop', table='orders')
+14:41:48.570882 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.orders, exists_check=true
+14:41:48.570937 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`customers`'
+14:41:48.570962 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.customers (catalog='dbt-tutorial', schema='jaffle_shop', table='customers')
+14:41:48.571355 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.customers, exists_check=true
+14:41:48.684644 [debug]: Finished analyzing [  1.06s] model dbt_02_21_26.customers [success]
+14:41:48.684801 [info ]: Finished analyzing [  1.07s] (1 nodes, 0 skipped, 0 errors)
+14:41:48.685018 [info ]: Started running (1 nodes)
+14:41:48.685142 [debug]: Started running model dbt_02_21_26.customers
+14:41:51.822415 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+14:41:51.842420 [error]: dbt1501: Error executing materialization macro 'dbt_bigquery.materialization_view_bigquery' for model model.dbt_02_21_26_project.customers: Failed to eval the compiled Jinja expression invalid operation: Compilation Error: Trying to create view `dbt-bigquery-integration`.`dbt_02_21_26`.`customers`, but it currently exists as a table. Either drop `dbt-bigquery-integration`.`dbt_02_21_26`.`customers` manually, or run dbt with `--full-refresh` and dbt will drop it for you.
+(in compiled/models/dev/customers.sql:1:13)
+(in dbt_internal_packages/dbt-bigquery/macros/materializations/view.sql:15:24)
+(in dbt_internal_packages/dbt-bigquery/macros/relations/view/replace.sql:29:5)
+(in dbt_internal_packages/dbt-bigquery/macros/relations/view/replace.sql:48:5)
+(in dbt_internal_packages/dbt-bigquery/macros/materializations/view.sql:6:7)
+  --> compiled/models/dev/customers.sql:1:13
+14:41:51.842743 [info ]:     Failed [  4.23s] model dbt_02_21_26.customers (view)
+14:41:51.843098 [debug]: Finished running [  3.16s] model dbt_02_21_26.customers [error]
+14:41:51.843213 [info ]: Finished running [  3.16s] (1 nodes, 0 skipped, 1 errors)
+14:41:51.968161 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 error for target 'dev' [8.1s]
+Processed: 1 model
+Summary: 1 total | 1 error
+==================== 2026-02-22T14:47:30.183254Z | 019c85d1-e082-7271-abbc-13117e05e5fa ====================
+14:47:30.183871 [info ]: dbt-fusion 2.0.0-preview.126
+14:47:30.185088 [info ]: Started loading project
+14:47:30.195594 [info ]: Loading profiles.yml
+14:47:30.222520 [info ]: Loading packages.yml
+14:47:30.223053 [debug]:    Started loading packages
+14:47:30.228698 [debug]:     Loaded [  0.01s] packages
+14:47:30.230242 [info ]: Finished loading project [  0.05s]
+14:47:30.230954 [info ]: Started parsing
+14:47:30.326661 [debug]: Finished parsing models/schema.yml [  0.00s]
+14:47:30.329212 [debug]: Finished parsing models/dev/customers.sql [  0.00s]
+14:47:30.330932 [info ]: Finished parsing [  0.10s]
+14:47:30.331608 [info ]: Started scheduling
+14:47:30.331788 [info ]: Finished scheduling [  0.00s]
+14:47:30.335302 [info ]: Started deferring state
+14:47:30.335393 [info ]: Finished deferring state [  0.00s]
+14:47:30.337737 [info ]: Started downloading schemas
+14:47:30.337905 [debug]:    Started downloading relations
+14:47:30.338068 [debug]:   Finished [  0.00s] downloading relations
+14:47:30.338165 [info ]: Finished downloading schemas [  0.00s]
+14:47:30.564372 [info ]: Started building task graph
+14:47:30.564587 [info ]: Finished building task graph [  0.00s]
+14:47:34.592071 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "example_analytics", "target_name": "dev"} */
+
+    select distinct schema_name from `dbt-bigquery-integration`.INFORMATION_SCHEMA.SCHEMATA;
+  
+14:47:34.592682 [info ]: Started rendering (1 nodes)
+14:47:34.592835 [info ]: Started model dbt_02_21_26.customers
+14:47:34.592882 [debug]: Started rendering model dbt_02_21_26.customers
+14:47:34.595787 [debug]: Compiled SQL for node model.dbt_02_21_26_project.customers at target/compiled/models/dev/customers.sql
+14:47:34.595917 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.customers [success]
+14:47:34.596032 [info ]: Finished rendering [  0.00s] (1 nodes, 0 skipped, 0 errors)
+14:47:34.596154 [info ]: Started analyzing (1 nodes)
+14:47:34.596233 [debug]: Started analyzing model dbt_02_21_26.customers
+14:47:35.268683 [debug]: Schema hydration: registering 1 schemas from db_runner
+14:47:35.268774 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`customers`'
+14:47:35.268807 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.customers (catalog='dbt-tutorial', schema='jaffle_shop', table='customers')
+14:47:35.270309 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.customers, exists_check=true
+14:47:35.325431 [debug]: Finished analyzing [  0.73s] model dbt_02_21_26.customers [success]
+14:47:35.325617 [info ]: Finished analyzing [  0.73s] (1 nodes, 0 skipped, 0 errors)
+14:47:35.325744 [info ]: Started running (1 nodes)
+14:47:35.325882 [debug]: Started running model dbt_02_21_26.customers
+14:47:38.649806 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+14:47:38.683951 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.customers"
+14:47:41.112955 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.customers", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26`.`customers`
+  OPTIONS()
+  as 
+
+    select
+        id as customer_id,
+        first_name,
+        last_name
+
+    from `dbt-tutorial`.jaffle_shop.customers
+;
+
+
+14:47:41.116694 [info ]:  Succeeded [  6.52s] model dbt_02_21_26.customers (view)
+14:47:41.116995 [debug]: Finished running [  5.79s] model dbt_02_21_26.customers [success]
+14:47:41.117139 [info ]: Finished running [  5.79s] (1 nodes, 0 skipped, 0 errors)
+14:47:41.197849 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' successfully for target 'dev' [11.0s]
+Processed: 1 model
+Summary: 1 total | 1 success
+==================== 2026-02-22T14:51:59.519858Z | 019c85d5-fc9d-76b0-aecd-c57c50b6116c ====================
+14:51:59.520177 [info ]: dbt-fusion 2.0.0-preview.126
+14:51:59.520999 [info ]: Started loading project
+14:51:59.526236 [info ]: Loading profiles.yml
+14:51:59.545303 [info ]: Loading packages.yml
+14:51:59.545534 [debug]:    Started loading packages
+14:51:59.550658 [debug]:     Loaded [  0.01s] packages
+14:51:59.552177 [info ]: Finished loading project [  0.03s]
+14:51:59.552741 [info ]: Started parsing
+14:51:59.648777 [debug]: Finished parsing models/schema.yml [  0.00s]
+14:51:59.651461 [debug]: Finished parsing models/dev/customers.sql [  0.00s]
+14:51:59.651886 [debug]: Finished parsing models/dev/orders.sql [  0.00s]
+14:51:59.652340 [debug]: Finished parsing models/dev/payment.sql [  0.00s]
+14:51:59.663875 [info ]: Finished parsing [  0.11s]
+14:51:59.664502 [info ]: Started scheduling
+14:51:59.665317 [info ]: Finished scheduling [  0.00s]
+14:51:59.667703 [info ]: Started deferring state
+14:51:59.667779 [info ]: Finished deferring state [  0.00s]
+14:51:59.669515 [info ]: Started downloading schemas
+14:51:59.669724 [debug]:    Started downloading relations
+14:51:59.670032 [debug]:   Finished [  0.00s] downloading relations
+14:51:59.670143 [info ]: Finished downloading schemas [  0.00s]
+14:51:59.935400 [info ]: Started building task graph
+14:51:59.935646 [info ]: Finished building task graph [  0.00s]
+14:52:03.155507 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "example_analytics", "target_name": "dev"} */
+
+    select distinct schema_name from `dbt-bigquery-integration`.INFORMATION_SCHEMA.SCHEMATA;
+  
+14:52:03.156565 [info ]: Started rendering (3 nodes)
+14:52:03.156881 [info ]: Started model dbt_02_21_26.payment
+14:52:03.156991 [debug]: Started rendering model dbt_02_21_26.payment
+14:52:03.157125 [info ]: Started model dbt_02_21_26.orders
+14:52:03.157182 [debug]: Started rendering model dbt_02_21_26.orders
+14:52:03.157252 [info ]: Started model dbt_02_21_26.customers
+14:52:03.157305 [debug]: Started rendering model dbt_02_21_26.customers
+14:52:03.161131 [debug]: Compiled SQL for node model.dbt_02_21_26_project.orders at target/compiled/models/dev/orders.sql
+14:52:03.161125 [debug]: Compiled SQL for node model.dbt_02_21_26_project.payment at target/compiled/models/dev/payment.sql
+14:52:03.161653 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.orders [success]
+14:52:03.162032 [info ]: Started analyzing (3 nodes)
+14:52:03.162270 [debug]: Started analyzing model dbt_02_21_26.orders
+14:52:03.162402 [debug]: Finished rendering [  0.01s] model dbt_02_21_26.payment [success]
+14:52:03.162658 [debug]: Started analyzing model dbt_02_21_26.payment
+14:52:03.164250 [debug]: Compiled SQL for node model.dbt_02_21_26_project.customers at target/compiled/models/dev/customers.sql
+14:52:03.164443 [debug]: Finished rendering [  0.01s] model dbt_02_21_26.customers [success]
+14:52:03.164641 [info ]: Finished rendering [  0.01s] (3 nodes, 0 skipped, 0 errors)
+14:52:03.164831 [debug]: Started analyzing model dbt_02_21_26.customers
+14:52:03.456039 [debug]: Schema hydration: registering 1 schemas from db_runner
+14:52:03.456099 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`payments`'
+14:52:03.492298 [debug]: Schema hydration: registering 1 schemas from db_runner
+14:52:03.492422 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`orders`'
+14:52:03.492481 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.orders (catalog='dbt-tutorial', schema='jaffle_shop', table='orders')
+14:52:03.494314 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.orders, exists_check=true
+14:52:03.511925 [debug]: Schema hydration: registering 1 schemas from db_runner
+14:52:03.512107 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`customers`'
+14:52:03.512161 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.customers (catalog='dbt-tutorial', schema='jaffle_shop', table='customers')
+14:52:03.512960 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.customers, exists_check=true
+14:52:03.547732 [debug]: Finished analyzing [  0.39s] model dbt_02_21_26.orders [success]
+14:52:03.547957 [info ]: Started running (3 nodes)
+14:52:03.548112 [debug]: Started running model dbt_02_21_26.orders
+14:52:03.548180 [debug]: Finished analyzing [  0.38s] model dbt_02_21_26.customers [success]
+14:52:03.548376 [debug]: Started running model dbt_02_21_26.customers
+14:52:03.548518 [error]: dbt0214: Table 'dbt-tutorial.jaffle_shop.payments' is missing in remote
+  --> models/dev/payment.sql:3:6 (target/compiled/models/dev/payment.sql:3:6)
+14:52:03.548684 [debug]: Finished analyzing [  0.39s] model dbt_02_21_26.payment [error]
+14:52:03.548856 [info ]: Finished analyzing [  0.39s] (3 nodes, 0 skipped, 1 errors)
+14:52:03.549009 [debug]: Started running model dbt_02_21_26.payment
+14:52:03.549092 [info ]:     Failed [  0.39s] model dbt_02_21_26.payment (view)
+14:52:03.549217 [debug]: Finished running [  0.00s] model dbt_02_21_26.payment [skipped]
+14:52:06.743118 [debug]: Query executed on node model.dbt_02_21_26_project.orders:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+14:52:06.748056 [error]: dbt1501: Error executing materialization macro 'dbt_bigquery.materialization_view_bigquery' for model model.dbt_02_21_26_project.orders: Failed to eval the compiled Jinja expression invalid operation: Compilation Error: Trying to create view `dbt-bigquery-integration`.`dbt_02_21_26`.`orders`, but it currently exists as a table. Either drop `dbt-bigquery-integration`.`dbt_02_21_26`.`orders` manually, or run dbt with `--full-refresh` and dbt will drop it for you.
+(in compiled/models/dev/orders.sql:1:13)
+(in dbt_internal_packages/dbt-bigquery/macros/materializations/view.sql:15:24)
+(in dbt_internal_packages/dbt-bigquery/macros/relations/view/replace.sql:29:5)
+(in dbt_internal_packages/dbt-bigquery/macros/relations/view/replace.sql:48:5)
+(in dbt_internal_packages/dbt-bigquery/macros/materializations/view.sql:6:7)
+  --> compiled/models/dev/orders.sql:1:13
+14:52:06.748421 [info ]:     Failed [  3.59s] model dbt_02_21_26.orders (view)
+14:52:06.748813 [debug]: Finished running [  3.20s] model dbt_02_21_26.orders [error]
+14:52:06.929382 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+14:52:06.934144 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.customers"
+14:52:09.296961 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.customers", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26`.`customers`
+  OPTIONS()
+  as 
+
+    select
+        id as customer_id,
+        first_name,
+        last_name
+
+    from `dbt-tutorial`.jaffle_shop.customers
+;
+
+
+14:52:09.301602 [info ]:  Succeeded [  6.14s] model dbt_02_21_26.customers (view)
+14:52:09.301904 [debug]: Finished running [  5.75s] model dbt_02_21_26.customers [success]
+14:52:09.302159 [info ]: Finished running [  5.75s] (3 nodes, 1 skipped, 1 errors)
+14:52:09.398666 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 2 errors for target 'dev' [9.9s]
+Processed: 3 models
+Summary: 3 total | 1 success | 2 error
+==================== 2026-02-22T15:00:13.256130Z | 019c85dd-8544-7c52-a0d8-330aefc0eb7e ====================
+15:00:13.256452 [info ]: dbt-fusion 2.0.0-preview.126
+15:00:13.256956 [info ]: Started loading project
+15:00:13.264011 [info ]: Loading profiles.yml
+15:00:13.279725 [info ]: Loading packages.yml
+15:00:13.279958 [debug]:    Started loading packages
+15:00:13.285345 [debug]:     Loaded [  0.01s] packages
+15:00:13.286466 [info ]: Finished loading project [  0.03s]
+15:00:13.286963 [info ]: Started parsing
+15:00:13.381796 [debug]: Finished parsing models/schema.yml [  0.00s]
+15:00:13.384569 [debug]: Finished parsing models/dev/customers.sql [  0.00s]
+15:00:13.384969 [debug]: Finished parsing models/dev/orders.sql [  0.00s]
+15:00:13.386983 [info ]: Finished parsing [  0.10s]
+15:00:13.387641 [info ]: Started scheduling
+15:00:13.387814 [info ]: Finished scheduling [  0.00s]
+15:00:13.390693 [info ]: Started deferring state
+15:00:13.390764 [info ]: Finished deferring state [  0.00s]
+15:00:13.393311 [info ]: Started downloading schemas
+15:00:13.393432 [debug]:    Started downloading relations
+15:00:13.393580 [debug]:   Finished [  0.00s] downloading relations
+15:00:13.393632 [info ]: Finished downloading schemas [  0.00s]
+15:00:13.642159 [info ]: Started building task graph
+15:00:13.642362 [info ]: Finished building task graph [  0.00s]
+15:00:16.944072 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "example_analytics", "target_name": "dev"} */
+
+    select distinct schema_name from `dbt-bigquery-integration`.INFORMATION_SCHEMA.SCHEMATA;
+  
+15:00:16.945581 [info ]: Started rendering (2 nodes)
+15:00:16.945907 [info ]: Started model dbt_02_21_26.orders
+15:00:16.946003 [debug]: Started rendering model dbt_02_21_26.orders
+15:00:16.946133 [info ]: Started model dbt_02_21_26.customers
+15:00:16.946211 [debug]: Started rendering model dbt_02_21_26.customers
+15:00:16.949198 [debug]: Compiled SQL for node model.dbt_02_21_26_project.orders at target/compiled/models/dev/orders.sql
+15:00:16.949235 [debug]: Compiled SQL for node model.dbt_02_21_26_project.customers at target/compiled/models/dev/customers.sql
+15:00:16.949430 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.orders [success]
+15:00:16.949736 [info ]: Started analyzing (2 nodes)
+15:00:16.949966 [debug]: Started analyzing model dbt_02_21_26.orders
+15:00:16.950053 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.customers [success]
+15:00:16.950263 [info ]: Finished rendering [  0.00s] (2 nodes, 0 skipped, 0 errors)
+15:00:16.950450 [debug]: Started analyzing model dbt_02_21_26.customers
+15:00:17.392114 [debug]: Schema hydration: registering 1 schemas from db_runner
+15:00:17.392504 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`orders`'
+15:00:17.392606 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.orders (catalog='dbt-tutorial', schema='jaffle_shop', table='orders')
+15:00:17.394641 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.orders, exists_check=true
+15:00:17.428935 [debug]: Schema hydration: registering 1 schemas from db_runner
+15:00:17.429204 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`customers`'
+15:00:17.429262 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.customers (catalog='dbt-tutorial', schema='jaffle_shop', table='customers')
+15:00:17.430958 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.customers, exists_check=true
+15:00:17.464474 [debug]: Finished analyzing [  0.51s] model dbt_02_21_26.orders [success]
+15:00:17.464681 [info ]: Started running (2 nodes)
+15:00:17.464821 [debug]: Started running model dbt_02_21_26.orders
+15:00:17.464930 [debug]: Finished analyzing [  0.51s] model dbt_02_21_26.customers [success]
+15:00:17.465067 [info ]: Finished analyzing [  0.52s] (2 nodes, 0 skipped, 0 errors)
+15:00:17.465199 [debug]: Started running model dbt_02_21_26.customers
+15:00:20.710670 [debug]: Query executed on node model.dbt_02_21_26_project.orders:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+15:00:20.716113 [error]: dbt1501: Error executing materialization macro 'dbt_bigquery.materialization_view_bigquery' for model model.dbt_02_21_26_project.orders: Failed to eval the compiled Jinja expression invalid operation: Compilation Error: Trying to create view `dbt-bigquery-integration`.`dbt_02_21_26`.`orders`, but it currently exists as a table. Either drop `dbt-bigquery-integration`.`dbt_02_21_26`.`orders` manually, or run dbt with `--full-refresh` and dbt will drop it for you.
+(in compiled/models/dev/orders.sql:1:13)
+(in dbt_internal_packages/dbt-bigquery/macros/materializations/view.sql:15:24)
+(in dbt_internal_packages/dbt-bigquery/macros/relations/view/replace.sql:29:5)
+(in dbt_internal_packages/dbt-bigquery/macros/relations/view/replace.sql:48:5)
+(in dbt_internal_packages/dbt-bigquery/macros/materializations/view.sql:6:7)
+  --> compiled/models/dev/orders.sql:1:13
+15:00:20.716471 [info ]:     Failed [  3.77s] model dbt_02_21_26.orders (view)
+15:00:20.717209 [debug]: Finished running [  3.25s] model dbt_02_21_26.orders [error]
+15:00:20.730709 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+15:00:20.735492 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.customers"
+15:00:23.919428 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.customers", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26`.`customers`
+  OPTIONS()
+  as 
+
+    select
+        id as customer_id,
+        first_name,
+        last_name
+
+    from `dbt-tutorial`.jaffle_shop.customers
+;
+
+
+15:00:23.924137 [info ]:  Succeeded [  6.97s] model dbt_02_21_26.customers (view)
+15:00:23.924480 [debug]: Finished running [  6.46s] model dbt_02_21_26.customers [success]
+15:00:23.924711 [info ]: Finished running [  6.46s] (2 nodes, 0 skipped, 1 errors)
+15:00:24.173410 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 error for target 'dev' [10.9s]
+Processed: 2 models
+Summary: 2 total | 1 success | 1 error
+==================== 2026-02-22T15:07:11.422628Z | 019c85e3-e6bc-7613-8b89-b711ce57b372 ====================
+15:07:11.422765 [info ]: dbt-fusion 2.0.0-preview.126
+15:07:11.423018 [info ]: Started loading project
+15:07:11.426994 [info ]: Loading profiles.yml
+15:07:11.443664 [info ]: Loading packages.yml
+15:07:11.444051 [debug]:    Started loading packages
+15:07:11.448314 [debug]:     Loaded [  0.00s] packages
+15:07:11.449392 [info ]: Finished loading project [  0.03s]
+15:07:11.456995 [info ]: Started parsing
+15:07:11.539924 [debug]: Finished parsing models/schema.yml [  0.00s]
+15:07:11.542529 [debug]: Finished parsing models/dev/customers.sql [  0.00s]
+15:07:11.543059 [debug]: Finished parsing models/dev/orders.sql [  0.00s]
+15:07:11.545075 [info ]: Finished parsing [  0.09s]
+15:07:11.545890 [info ]: Started scheduling
+15:07:11.546045 [info ]: Finished scheduling [  0.00s]
+15:07:11.548916 [info ]: Started deferring state
+15:07:11.548977 [info ]: Finished deferring state [  0.00s]
+15:07:11.550425 [info ]: Started downloading schemas
+15:07:11.550517 [debug]:    Started downloading relations
+15:07:11.550670 [debug]:   Finished [  0.00s] downloading relations
+15:07:11.551242 [info ]: Finished downloading schemas [  0.00s]
+15:07:11.786773 [info ]: Started building task graph
+15:07:11.786970 [info ]: Finished building task graph [  0.00s]
+15:07:14.740650 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "example_analytics", "target_name": "dev"} */
+
+    select distinct schema_name from `dbt-bigquery-integration`.INFORMATION_SCHEMA.SCHEMATA;
+  
+15:07:14.741160 [info ]: Started rendering (2 nodes)
+15:07:14.741372 [info ]: Started model dbt_02_21_26.orders
+15:07:14.741395 [debug]: Started rendering model dbt_02_21_26.orders
+15:07:14.741427 [info ]: Started model dbt_02_21_26.customers
+15:07:14.741448 [debug]: Started rendering model dbt_02_21_26.customers
+15:07:14.742312 [debug]: Compiled SQL for node model.dbt_02_21_26_project.orders at target/compiled/models/dev/orders.sql
+15:07:14.742313 [debug]: Compiled SQL for node model.dbt_02_21_26_project.customers at target/compiled/models/dev/customers.sql
+15:07:14.742396 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.customers [success]
+15:07:14.742506 [info ]: Started analyzing (2 nodes)
+15:07:14.742568 [debug]: Started analyzing model dbt_02_21_26.customers
+15:07:14.742599 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.orders [success]
+15:07:14.742663 [info ]: Finished rendering [  0.00s] (2 nodes, 0 skipped, 0 errors)
+15:07:14.742710 [debug]: Started analyzing model dbt_02_21_26.orders
+15:07:15.140928 [debug]: Schema hydration: registering 1 schemas from db_runner
+15:07:15.140955 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`orders`'
+15:07:15.140971 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.orders (catalog='dbt-tutorial', schema='jaffle_shop', table='orders')
+15:07:15.141355 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.orders, exists_check=true
+15:07:15.143807 [debug]: Schema hydration: registering 1 schemas from db_runner
+15:07:15.143832 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`customers`'
+15:07:15.143846 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.customers (catalog='dbt-tutorial', schema='jaffle_shop', table='customers')
+15:07:15.144082 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.customers, exists_check=true
+15:07:15.159388 [debug]: Finished analyzing [  0.42s] model dbt_02_21_26.orders [success]
+15:07:15.159508 [info ]: Started running (2 nodes)
+15:07:15.159561 [debug]: Started running model dbt_02_21_26.orders
+15:07:15.159597 [debug]: Finished analyzing [  0.42s] model dbt_02_21_26.customers [success]
+15:07:15.159651 [info ]: Finished analyzing [  0.42s] (2 nodes, 0 skipped, 0 errors)
+15:07:15.159713 [debug]: Started running model dbt_02_21_26.customers
+15:07:18.121308 [debug]: Query executed on node model.dbt_02_21_26_project.orders:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+15:07:18.127523 [error]: dbt1501: Error executing materialization macro 'dbt_bigquery.materialization_view_bigquery' for model model.dbt_02_21_26_project.orders: Failed to eval the compiled Jinja expression invalid operation: Compilation Error: Trying to create view `dbt-bigquery-integration`.`dbt_02_21_26`.`orders`, but it currently exists as a table. Either drop `dbt-bigquery-integration`.`dbt_02_21_26`.`orders` manually, or run dbt with `--full-refresh` and dbt will drop it for you.
+(in compiled/models/dev/orders.sql:1:13)
+(in dbt_internal_packages/dbt-bigquery/macros/materializations/view.sql:15:24)
+(in dbt_internal_packages/dbt-bigquery/macros/relations/view/replace.sql:29:5)
+(in dbt_internal_packages/dbt-bigquery/macros/relations/view/replace.sql:48:5)
+(in dbt_internal_packages/dbt-bigquery/macros/materializations/view.sql:6:7)
+  --> compiled/models/dev/orders.sql:1:13
+15:07:18.127842 [info ]:     Failed [  3.38s] model dbt_02_21_26.orders (view)
+15:07:18.128220 [debug]: Finished running [  2.97s] model dbt_02_21_26.orders [error]
+15:07:18.208023 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+15:07:18.221514 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.customers"
+15:07:20.071799 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.customers", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26`.`customers`
+  OPTIONS()
+  as 
+
+    select
+        id as customer_id,
+        first_name,
+        last_name
+
+    from `dbt-tutorial`.jaffle_shop.customers
+;
+
+
+15:07:20.078068 [info ]:  Succeeded [  5.33s] model dbt_02_21_26.customers (view)
+15:07:20.078572 [debug]: Finished running [  4.92s] model dbt_02_21_26.customers [success]
+15:07:20.078913 [info ]: Finished running [  4.92s] (2 nodes, 0 skipped, 1 errors)
+15:07:20.192347 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 error for target 'dev' [8.8s]
+Processed: 2 models
+Summary: 2 total | 1 success | 1 error
+==================== 2026-02-22T15:08:14.863917Z | 019c85e4-de8e-7f00-b091-698ff52d9cc1 ====================
+15:08:14.864051 [info ]: dbt-fusion 2.0.0-preview.126
+15:08:14.864368 [info ]: Started loading project
+15:08:14.869499 [info ]: Loading profiles.yml
+15:08:14.883342 [info ]: Loading packages.yml
+15:08:14.883656 [debug]:    Started loading packages
+15:08:14.888592 [debug]:     Loaded [  0.00s] packages
+15:08:14.889829 [info ]: Finished loading project [  0.03s]
+15:08:14.890449 [info ]: Started parsing
+15:08:14.985311 [debug]: Finished parsing models/schema.yml [  0.00s]
+15:08:14.988063 [debug]: Finished parsing models/dev/customers.sql [  0.00s]
+15:08:14.988531 [debug]: Finished parsing models/dev/orders.sql [  0.00s]
+15:08:14.990498 [info ]: Finished parsing [  0.10s]
+15:08:14.991241 [info ]: Started scheduling
+15:08:14.991391 [info ]: Finished scheduling [  0.00s]
+15:08:14.993892 [info ]: Started deferring state
+15:08:14.993980 [info ]: Finished deferring state [  0.00s]
+15:08:14.995561 [info ]: Started downloading schemas
+15:08:14.995630 [debug]:    Started downloading relations
+15:08:14.995725 [debug]:   Finished [  0.00s] downloading relations
+15:08:14.995758 [info ]: Finished downloading schemas [  0.00s]
+15:08:15.227191 [info ]: Started building task graph
+15:08:15.227395 [info ]: Finished building task graph [  0.00s]
+15:08:18.545566 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "example_analytics", "target_name": "dev"} */
+
+    select distinct schema_name from `dbt-bigquery-integration`.INFORMATION_SCHEMA.SCHEMATA;
+  
+15:08:18.546138 [info ]: Started rendering (2 nodes)
+15:08:18.546263 [info ]: Started model dbt_02_21_26.orders
+15:08:18.546306 [debug]: Started rendering model dbt_02_21_26.orders
+15:08:18.546368 [info ]: Started model dbt_02_21_26.customers
+15:08:18.546385 [debug]: Started rendering model dbt_02_21_26.customers
+15:08:18.547425 [debug]: Compiled SQL for node model.dbt_02_21_26_project.orders at target/compiled/models/dev/orders.sql
+15:08:18.547438 [debug]: Compiled SQL for node model.dbt_02_21_26_project.customers at target/compiled/models/dev/customers.sql
+15:08:18.547557 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.orders [success]
+15:08:18.547688 [info ]: Started analyzing (2 nodes)
+15:08:18.547756 [debug]: Started analyzing model dbt_02_21_26.orders
+15:08:18.547791 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.customers [success]
+15:08:18.547858 [info ]: Finished rendering [  0.00s] (2 nodes, 0 skipped, 0 errors)
+15:08:18.547926 [debug]: Started analyzing model dbt_02_21_26.customers
+15:08:18.889400 [debug]: Schema hydration: registering 1 schemas from db_runner
+15:08:18.889495 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`orders`'
+15:08:18.889545 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.orders (catalog='dbt-tutorial', schema='jaffle_shop', table='orders')
+15:08:18.891606 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.orders, exists_check=true
+15:08:18.933522 [debug]: Schema hydration: registering 1 schemas from db_runner
+15:08:18.933649 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`customers`'
+15:08:18.933746 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.customers (catalog='dbt-tutorial', schema='jaffle_shop', table='customers')
+15:08:18.935988 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.customers, exists_check=true
+15:08:18.972213 [debug]: Finished analyzing [  0.42s] model dbt_02_21_26.orders [success]
+15:08:18.972510 [info ]: Started running (2 nodes)
+15:08:18.972640 [debug]: Started running model dbt_02_21_26.orders
+15:08:18.973730 [debug]: Finished analyzing [  0.43s] model dbt_02_21_26.customers [success]
+15:08:18.973973 [info ]: Finished analyzing [  0.43s] (2 nodes, 0 skipped, 0 errors)
+15:08:18.974130 [debug]: Started running model dbt_02_21_26.customers
+15:08:22.024270 [debug]: Query executed on node model.dbt_02_21_26_project.orders:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+15:08:22.037532 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.orders"
+15:08:22.042505 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+15:08:22.049353 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.customers"
+15:08:23.976740 [debug]: Query executed on node model.dbt_02_21_26_project.orders:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.orders", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26`.`orders`
+  OPTIONS()
+  as   select
+        id as order_id,
+        user_id as customer_id,
+        order_date,
+        status
+
+    from `dbt-tutorial`.jaffle_shop.orders;
+
+
+15:08:23.985790 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.customers", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26`.`customers`
+  OPTIONS()
+  as 
+
+    select
+        id as customer_id,
+        first_name,
+        last_name
+
+    from `dbt-tutorial`.jaffle_shop.customers
+;
+
+
+15:08:23.985868 [info ]:  Succeeded [  5.44s] model dbt_02_21_26.orders (view)
+15:08:23.986274 [debug]: Finished running [  5.01s] model dbt_02_21_26.orders [success]
+15:08:23.989412 [info ]:  Succeeded [  5.44s] model dbt_02_21_26.customers (view)
+15:08:23.989702 [debug]: Finished running [  5.02s] model dbt_02_21_26.customers [success]
+15:08:23.989825 [info ]: Finished running [  5.02s] (2 nodes, 0 skipped, 0 errors)
+15:08:24.089565 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' successfully for target 'dev' [9.2s]
+Processed: 2 models
+Summary: 2 total | 2 success
+==================== 2026-02-22T15:44:23.680624Z | 019c8605-f67c-7491-8740-c56eee1f8257 ====================
+15:44:23.680851 [info ]: dbt-fusion 2.0.0-preview.126
+15:44:23.681431 [info ]: Started loading project
+15:44:23.686811 [info ]: Loading profiles.yml
+15:44:23.711107 [info ]: Loading packages.yml
+15:44:23.711522 [debug]:    Started loading packages
+15:44:23.721897 [debug]:     Loaded [  0.01s] packages
+15:44:23.724052 [info ]: Finished loading project [  0.04s]
+15:44:23.725281 [info ]: Started parsing
+15:44:23.846178 [debug]: Finished parsing models/schema.yml [  0.00s]
+15:44:23.848911 [error]: dbt1000: Failed to create template: syntax error: unexpected `=`, expected `,`
+(in models/dev/dev_customers.sql:3:20)
+15:44:23.856174 [error]: dbt1502: Failed to render SQL syntax error: unexpected `=`, expected `,`
+(in models/dev/dev_customers.sql:3:20)
+  --> models/dev/dev_customers.sql:3:20
+15:44:23.856451 [debug]: Finished parsing models/dev/dev_customers.sql [  0.01s]
+15:44:23.857633 [error]: dbt1000: Failed to create template: syntax error: unexpected `=`, expected `,`
+(in models/dev/dev_orders.sql:3:20)
+15:44:23.858010 [error]: dbt1502: Failed to render SQL syntax error: unexpected `=`, expected `,`
+(in models/dev/dev_orders.sql:3:20)
+  --> models/dev/dev_orders.sql:3:20
+15:44:23.858169 [debug]: Finished parsing models/dev/dev_orders.sql [  0.00s]
+15:44:23.859581 [debug]: Finished parsing models/staging/stg_customers.sql [  0.00s]
+15:44:23.860776 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+15:44:23.876246 [info ]: Finished parsing [  0.15s]
+15:44:24.681406 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 4 errors for target 'dev' [1.0s]
+==================== 2026-02-22T15:45:29.582579Z | 019c8606-f7eb-73b0-8f1c-81ee93f2424a ====================
+15:45:29.582734 [info ]: dbt-fusion 2.0.0-preview.126
+15:45:29.583052 [info ]: Started loading project
+15:45:29.590802 [info ]: Loading profiles.yml
+15:45:29.614682 [info ]: Loading packages.yml
+15:45:29.614908 [debug]:    Started loading packages
+15:45:29.620953 [debug]:     Loaded [  0.01s] packages
+15:45:29.622284 [info ]: Finished loading project [  0.04s]
+15:45:29.623033 [info ]: Started parsing
+15:45:29.755647 [debug]: Finished parsing models/schema.yml [  0.00s]
+15:45:29.759683 [error]: dbt1000: Failed to create template: syntax error: unexpected `=`, expected `,`
+(in models/dev/dev_customers.sql:3:20)
+15:45:29.759960 [error]: dbt1502: Failed to render SQL syntax error: unexpected `=`, expected `,`
+(in models/dev/dev_customers.sql:3:20)
+  --> models/dev/dev_customers.sql:3:20
+15:45:29.760035 [debug]: Finished parsing models/dev/dev_customers.sql [  0.00s]
+15:45:29.760706 [debug]: Finished parsing models/dev/dev_orders.sql [  0.00s]
+15:45:29.761247 [debug]: Finished parsing models/staging/stg_customers.sql [  0.00s]
+15:45:29.761791 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+15:45:29.766809 [info ]: Finished parsing [  0.14s]
+15:45:30.045977 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 2 errors for target 'dev' [463ms]
+==================== 2026-02-22T15:47:06.013930Z | 019c8608-709b-7400-83bd-b16ed2386c62 ====================
+15:47:06.014085 [info ]: dbt-fusion 2.0.0-preview.126
+15:47:06.014406 [info ]: Started loading project
+15:47:06.019497 [info ]: Loading profiles.yml
+15:47:06.038031 [info ]: Loading packages.yml
+15:47:06.038353 [debug]:    Started loading packages
+15:47:06.044186 [debug]:     Loaded [  0.01s] packages
+15:47:06.045362 [info ]: Finished loading project [  0.03s]
+15:47:06.046079 [info ]: Started parsing
+15:47:06.184810 [debug]: Finished parsing models/schema.yml [  0.00s]
+15:47:06.187825 [debug]: Finished parsing models/dev/dev_customers.sql [  0.00s]
+15:47:06.188764 [debug]: Finished parsing models/dev/dev_orders.sql [  0.00s]
+15:47:06.189589 [debug]: Finished parsing models/staging/stg_customers.sql [  0.00s]
+15:47:06.190714 [debug]: Finished parsing models/staging/stg_orders.sql [  0.00s]
+15:47:06.197392 [info ]: Finished parsing [  0.15s]
+15:47:06.198537 [info ]: Started scheduling
+15:47:06.199041 [info ]: Finished scheduling [  0.00s]
+15:47:06.202057 [info ]: Started deferring state
+15:47:06.202147 [info ]: Finished deferring state [  0.00s]
+15:47:06.208781 [info ]: Started downloading schemas
+15:47:06.208876 [debug]:    Started downloading relations
+15:47:06.209034 [debug]:   Finished [  0.00s] downloading relations
+15:47:06.209083 [info ]: Finished downloading schemas [  0.00s]
+15:47:06.788631 [info ]: Started building task graph
+15:47:06.788913 [info ]: Finished building task graph [  0.00s]
+15:47:10.355162 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "example_analytics", "target_name": "dev"} */
+
+    select distinct schema_name from `dbt-bigquery-integration`.INFORMATION_SCHEMA.SCHEMATA;
+  
+15:47:10.355659 [info ]: Started rendering (2 nodes)
+15:47:10.355804 [info ]: Started model dbt_02_21_26.dev_orders
+15:47:10.355874 [debug]: Started rendering model dbt_02_21_26.dev_orders
+15:47:10.355948 [info ]: Started model dbt_02_21_26.dev_customers
+15:47:10.356101 [debug]: Started rendering model dbt_02_21_26.dev_customers
+15:47:10.357181 [debug]: Compiled SQL for node model.dbt_02_21_26_project.dev_customers at target/compiled/models/dev/dev_customers.sql
+15:47:10.357202 [debug]: Compiled SQL for node model.dbt_02_21_26_project.dev_orders at target/compiled/models/dev/dev_orders.sql
+15:47:10.357287 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.dev_customers [success]
+15:47:10.357399 [info ]: Started analyzing (2 nodes)
+15:47:10.357654 [debug]: Started analyzing model dbt_02_21_26.dev_customers
+15:47:10.357693 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.dev_orders [success]
+15:47:10.357757 [info ]: Finished rendering [  0.00s] (2 nodes, 0 skipped, 0 errors)
+15:47:10.357834 [debug]: Started analyzing model dbt_02_21_26.dev_orders
+15:47:10.676917 [debug]: Schema hydration: registering 1 schemas from db_runner
+15:47:10.676941 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`orders`'
+15:47:10.676958 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.orders (catalog='dbt-tutorial', schema='jaffle_shop', table='orders')
+15:47:10.677356 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.orders, exists_check=true
+15:47:10.704987 [debug]: Schema hydration: registering 1 schemas from db_runner
+15:47:10.705028 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`customers`'
+15:47:10.705405 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.customers (catalog='dbt-tutorial', schema='jaffle_shop', table='customers')
+15:47:10.706150 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.customers, exists_check=true
+15:47:10.712745 [debug]: Finished analyzing [  0.36s] model dbt_02_21_26.dev_customers [success]
+15:47:10.713489 [info ]: Started running (2 nodes)
+15:47:10.713622 [debug]: Started running model dbt_02_21_26.dev_customers
+15:47:10.713739 [debug]: Finished analyzing [  0.36s] model dbt_02_21_26.dev_orders [success]
+15:47:10.713971 [info ]: Finished analyzing [  0.36s] (2 nodes, 0 skipped, 0 errors)
+15:47:10.715009 [debug]: Started running model dbt_02_21_26.dev_orders
+15:47:13.360639 [debug]: Query executed on node model.dbt_02_21_26_project.dev_orders:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+15:47:13.367081 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.dev_orders"
+15:47:13.609979 [debug]: Query executed on node model.dbt_02_21_26_project.dev_customers:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+15:47:13.616655 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.dev_customers"
+15:47:15.310843 [debug]: Query executed on node model.dbt_02_21_26_project.dev_customers:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.dev_customers", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26`.`dev_customers`
+  OPTIONS()
+  as     select
+        id as customer_id,
+        first_name,
+        last_name
+    from `dbt-tutorial`.jaffle_shop.customers
+;
+
+
+15:47:15.313098 [info ]:  Succeeded [  4.96s] model dbt_02_21_26.dev_customers (view)
+15:47:15.313705 [debug]: Finished running [  4.60s] model dbt_02_21_26.dev_customers [success]
+15:47:15.317158 [debug]: Query executed on node model.dbt_02_21_26_project.dev_orders:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.dev_orders", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26`.`dev_orders`
+  OPTIONS()
+  as 
+
+  select
+        id as order_id,
+        user_id as customer_id,
+        order_date,
+        status
+
+    from `dbt-tutorial`.jaffle_shop.orders;
+
+
+15:47:15.319478 [info ]:  Succeeded [  4.96s] model dbt_02_21_26.dev_orders (view)
+15:47:15.319646 [debug]: Finished running [  4.60s] model dbt_02_21_26.dev_orders [success]
+15:47:15.319703 [info ]: Finished running [  4.61s] (2 nodes, 0 skipped, 0 errors)
+15:47:15.391530 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' successfully for target 'dev' [9.4s]
+Processed: 2 models
+Summary: 2 total | 2 success

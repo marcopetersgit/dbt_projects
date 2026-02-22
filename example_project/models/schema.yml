@@ -4,6 +4,7 @@ sources:
   - name: analytics
     description: Analytics data in BigQuery
     database: dbt-bigquery-integration
+    
     schema: dbt_02_21_26
     tables:
       - name: customers
@@ -11,7 +12,11 @@ sources:
         columns:
           - name: customer_id
             description: Unique customer identifier
-
+          - name: first_name
+            description: First name of customer 
+          - name: last_name
+            description: Last name of customer
+     
       - name: orders
         description: Order data
         columns:
@@ -19,10 +24,4 @@ sources:
             description: Unique order identifier
           - name: customer_id
             description: Foreign key to customers
-
-      - name: payment
-        description: Payment data
-        columns:
-          - name: payment_id
-            description: Unique payment identifier
 

@@ -12,7 +12,19 @@ example_analytics:
       location: 'US'
       priority: interactive
       retries: 1
-      keyfile: '/home/hanse/Downloads/dbt-bigquery-integration-0f59db2aa1b8.json'
+      keyfile: '/home/hanse/Documents/BigQuery/keyfile.json'
+
+    staging:
+      type: bigquery
+      method: oauth 
+      project: 'dbt-bigquery-integration'
+      dataset: 'dbt_02_21_26_staging'
+      threads: 4
+      timeout_seconds: 300
+      location: 'US'
+      priority: interactive
+      retries: 1
+      keyfile: '/home/hanse/Documents/BigQuery/keyfile.json'
     
     prod:
       type: bigquery
@@ -23,5 +35,5 @@ example_analytics:
       timeout_seconds: 300
       location: 'US'
       priority: interactive
-      keyfile: '/home/hanse/Downloads/dbt-bigquery-integration-0f59db2aa1b8.json'
+      keyfile:  '/home/hanse/Documents/BigQuery/keyfile.json'
 
