@@ -1149,3 +1149,403 @@ FROM
 Finished 'run' successfully for target 'dev' [9.4s]
 Processed: 2 models
 Summary: 2 total | 2 success
+==================== 2026-02-22T18:25:54.530056Z | 019c8699-d533-71b3-88b2-b980ca2d68dc ====================
+18:25:54.540705 [info ]: dbt-fusion 2.0.0-preview.126
+18:25:54.553720 [info ]: Started loading project
+18:25:54.611875 [info ]: Loading profiles.yml
+18:25:54.696130 [info ]: Loading packages.yml
+18:25:54.701484 [debug]:    Started loading packages
+18:25:54.723823 [debug]:     Loaded [  0.02s] packages
+18:25:54.737049 [info ]: Finished loading project [  0.18s]
+18:25:54.746509 [info ]: Started parsing
+18:25:54.918220 [debug]: Finished parsing models/schema.yml [  0.01s]
+18:25:54.940145 [debug]: Finished parsing models/dev/dev_customers.sql [  0.01s]
+18:25:54.940671 [debug]: Finished parsing models/dev/dev_orders.sql [  0.00s]
+18:25:54.941906 [debug]: Finished parsing models/staging/stg_customer_orders.sql [  0.00s]
+18:25:54.954347 [info ]: Finished parsing [  0.21s]
+18:25:54.961435 [info ]: Started scheduling
+18:25:54.966636 [info ]: Finished scheduling [  0.01s]
+18:25:54.984947 [info ]: Started deferring state
+18:25:54.985047 [info ]: Finished deferring state [  0.00s]
+18:25:55.053105 [info ]: Started downloading schemas
+18:25:55.053423 [debug]:    Started downloading relations
+18:25:55.058421 [debug]:   Finished [  0.00s] downloading relations
+18:25:55.058923 [info ]: Finished downloading schemas [  0.01s]
+18:25:55.319779 [info ]: Started building task graph
+18:25:55.336303 [info ]: Finished building task graph [  0.02s]
+18:25:59.923850 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "example_analytics", "target_name": "dev"} */
+
+    select distinct schema_name from `dbt-bigquery-integration`.INFORMATION_SCHEMA.SCHEMATA;
+  
+18:25:59.941303 [info ]: Started rendering (3 nodes)
+18:25:59.944135 [info ]: Started model dbt_02_21_26.dev_orders
+18:25:59.944245 [debug]: Started rendering model dbt_02_21_26.dev_orders
+18:25:59.944385 [info ]: Started model dbt_02_21_26.dev_customers
+18:25:59.944459 [debug]: Started rendering model dbt_02_21_26.dev_customers
+18:25:59.957496 [debug]: Compiled SQL for node model.dbt_02_21_26_project.dev_orders at target/compiled/models/dev/dev_orders.sql
+18:25:59.957588 [debug]: Compiled SQL for node model.dbt_02_21_26_project.dev_customers at target/compiled/models/dev/dev_customers.sql
+18:25:59.959365 [debug]: Finished rendering [  0.01s] model dbt_02_21_26.dev_customers [success]
+18:25:59.960217 [info ]: Started analyzing (3 nodes)
+18:25:59.960506 [debug]: Started analyzing model dbt_02_21_26.dev_customers
+18:25:59.960604 [debug]: Finished rendering [  0.02s] model dbt_02_21_26.dev_orders [success]
+18:25:59.960864 [debug]: Started analyzing model dbt_02_21_26.dev_orders
+18:26:00.485666 [debug]: Schema hydration: registering 1 schemas from db_runner
+18:26:00.485713 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`customers`'
+18:26:00.485733 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.customers (catalog='dbt-tutorial', schema='jaffle_shop', table='customers')
+18:26:00.486691 [debug]: Schema hydration: registering 1 schemas from db_runner
+18:26:00.486734 [debug]: Schema hydration: parsing FQN string '`dbt-tutorial`.`jaffle_shop`.`orders`'
+18:26:00.486757 [debug]: Schema hydration: registering cfqn=dbt-tutorial.jaffle_shop.orders (catalog='dbt-tutorial', schema='jaffle_shop', table='orders')
+18:26:00.501773 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.orders, exists_check=true
+18:26:00.503002 [debug]: Schema hydration: registration succeeded for dbt-tutorial.jaffle_shop.customers, exists_check=true
+18:26:00.563808 [debug]: Finished analyzing [  0.60s] model dbt_02_21_26.dev_orders [success]
+18:26:00.565529 [info ]: Started running (3 nodes)
+18:26:00.565739 [debug]: Started running model dbt_02_21_26.dev_orders
+18:26:00.565855 [debug]: Finished analyzing [  0.61s] model dbt_02_21_26.dev_customers [success]
+18:26:00.565991 [debug]: Started running model dbt_02_21_26.dev_customers
+18:26:00.566172 [info ]: Started model dbt_02_21_26.stg_customer_orders
+18:26:00.566199 [debug]: Started rendering model dbt_02_21_26.stg_customer_orders
+18:26:00.568513 [debug]: Compiled SQL for node model.dbt_02_21_26_project.stg_customer_orders at target/compiled/models/staging/stg_customer_orders.sql
+18:26:00.568666 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.stg_customer_orders [success]
+18:26:00.568734 [info ]: Finished rendering [  0.63s] (3 nodes, 0 skipped, 0 errors)
+18:26:00.570045 [debug]: Started analyzing model dbt_02_21_26.stg_customer_orders
+18:26:00.679605 [debug]: Finished analyzing [  0.11s] model dbt_02_21_26.stg_customer_orders [success]
+18:26:00.679670 [info ]: Finished analyzing [  0.72s] (3 nodes, 0 skipped, 0 errors)
+18:26:03.670425 [debug]: Query executed on node model.dbt_02_21_26_project.dev_customers:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+18:26:03.704791 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.dev_customers"
+18:26:04.287013 [debug]: Query executed on node model.dbt_02_21_26_project.dev_orders:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+18:26:04.295046 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.dev_orders"
+18:26:05.535801 [debug]: Query executed on node model.dbt_02_21_26_project.dev_customers:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.dev_customers", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26`.`dev_customers`
+  OPTIONS()
+  as     select
+        id as customer_id,
+        first_name,
+        last_name
+    from `dbt-tutorial`.jaffle_shop.customers
+;
+
+
+18:26:05.546761 [info ]:  Succeeded [  5.60s] model dbt_02_21_26.dev_customers (view)
+18:26:05.547047 [debug]: Finished running [  4.98s] model dbt_02_21_26.dev_customers [success]
+18:26:06.748188 [debug]: Query executed on node model.dbt_02_21_26_project.dev_orders:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.dev_orders", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26`.`dev_orders`
+  OPTIONS()
+  as 
+
+  select
+        id as order_id,
+        user_id as customer_id,
+        order_date,
+        status
+
+    from `dbt-tutorial`.jaffle_shop.orders;
+
+
+18:26:06.755834 [info ]:  Succeeded [  6.81s] model dbt_02_21_26.dev_orders (view)
+18:26:06.756197 [debug]: Finished running [  6.19s] model dbt_02_21_26.dev_orders [success]
+18:26:06.756572 [debug]: Started running model dbt_02_21_26.stg_customer_orders
+18:26:06.771517 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.stg_customer_orders"
+18:26:09.202376 [debug]: Query executed on node model.dbt_02_21_26_project.stg_customer_orders:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.stg_customer_orders", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26`.`stg_customer_orders`
+  OPTIONS()
+  as with customers as (
+
+    select * from `dbt-bigquery-integration`.`dbt_02_21_26`.`dev_customers`
+
+),
+
+orders as (
+
+    select * from `dbt-bigquery-integration`.`dbt_02_21_26`.`dev_orders`
+
+),
+
+customer_orders as (
+
+    select
+        customer_id,
+        min(order_date) as first_order_date,
+        max(order_date) as most_recent_order_date,
+        count(order_id) as number_of_orders
+
+    from orders
+
+    group by 1
+
+),
+
+final as (
+
+    select
+        customers.customer_id,
+        customers.first_name,
+        customers.last_name,
+        customer_orders.first_order_date,
+        customer_orders.most_recent_order_date,
+        coalesce(customer_orders.number_of_orders, 0) as number_of_orders
+
+    from customers
+
+    left join customer_orders using (customer_id)
+
+)
+
+select * from final;
+
+
+18:26:09.206793 [info ]:  Succeeded [  2.56s] model dbt_02_21_26.stg_customer_orders (view)
+18:26:09.207168 [debug]: Finished running [  2.45s] model dbt_02_21_26.stg_customer_orders [success]
+18:26:09.207314 [info ]: Finished running [  8.64s] (3 nodes, 0 skipped, 0 errors)
+18:26:09.345082 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' successfully for target 'dev' [14.8s]
+Processed: 3 models
+Summary: 3 total | 3 success
+==================== 2026-02-22T18:41:14.077013Z | 019c86a7-dd59-70a3-8a7c-423d342fb1cb ====================
+18:41:14.077167 [info ]: dbt-fusion 2.0.0-preview.126
+18:41:14.079666 [info ]: Started loading project
+18:41:14.086880 [info ]: Loading profiles.yml
+18:41:14.110908 [info ]: Loading packages.yml
+18:41:14.113052 [debug]:    Started loading packages
+18:41:14.120110 [debug]:     Loaded [  0.01s] packages
+18:41:14.121810 [info ]: Finished loading project [  0.04s]
+18:41:14.122854 [info ]: Started parsing
+18:41:14.238004 [debug]: Finished parsing models/schema.yml [  0.00s]
+18:41:14.240887 [debug]: Finished parsing models/dev/dev_customers.sql [  0.00s]
+18:41:14.241724 [debug]: Finished parsing models/dev/dev_orders.sql [  0.00s]
+18:41:14.242600 [debug]: Finished parsing models/staging/stg_customer_orders.sql [  0.00s]
+18:41:14.248612 [info ]: Finished parsing [  0.13s]
+18:41:14.249315 [info ]: Started scheduling
+18:41:14.257315 [info ]: Finished scheduling [  0.01s]
+18:41:14.258816 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "dbt-bigquery-integration", schema: "dbt_02_21_26", table: "dev_orders" }) and interval: None
+18:41:14.259123 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "dbt-bigquery-integration", schema: "dbt_02_21_26", table: "dev_customers" }) and interval: None
+18:41:14.262419 [info ]: Started deferring state
+18:41:14.262461 [info ]: Finished deferring state [  0.00s]
+18:41:14.264809 [info ]: Started downloading schemas
+18:41:14.265131 [debug]:    Started downloading relations
+18:41:14.265426 [debug]:   Finished [  0.00s] downloading relations
+18:41:14.713069 [info ]: Downloaded `dbt-bigquery-integration`.`dbt_02_21_26`.`dev_customers` (schema)
+18:41:14.714012 [info ]: Downloaded `dbt-bigquery-integration`.`dbt_02_21_26`.`dev_orders` (schema)
+18:41:14.714820 [info ]: Finished downloading schemas [  0.45s]
+18:41:15.015431 [info ]: Started building task graph
+18:41:15.015870 [info ]: Finished building task graph [  0.00s]
+18:41:18.003226 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "example_analytics", "target_name": "dev"} */
+
+    select distinct schema_name from `dbt-bigquery-integration`.INFORMATION_SCHEMA.SCHEMATA;
+  
+18:41:18.003828 [info ]: Started rendering (1 nodes)
+18:41:18.003921 [info ]: Started model dbt_02_21_26_staging.stg_customer_orders
+18:41:18.003952 [debug]: Started rendering model dbt_02_21_26_staging.stg_customer_orders
+18:41:18.005723 [debug]: Compiled SQL for node model.dbt_02_21_26_project.stg_customer_orders at target/compiled/models/staging/stg_customer_orders.sql
+18:41:18.005818 [debug]: Finished rendering [  0.00s] model dbt_02_21_26_staging.stg_customer_orders [success]
+18:41:18.005838 [info ]: Finished rendering [  0.00s] (1 nodes, 0 skipped, 0 errors)
+18:41:18.005909 [info ]: Started analyzing (1 nodes)
+18:41:18.005925 [debug]: Started analyzing model dbt_02_21_26_staging.stg_customer_orders
+18:41:18.076289 [debug]: Finished analyzing [  0.07s] model dbt_02_21_26_staging.stg_customer_orders [success]
+18:41:18.076327 [info ]: Finished analyzing [  0.07s] (1 nodes, 0 skipped, 0 errors)
+18:41:18.076375 [info ]: Started running (1 nodes)
+18:41:18.076390 [debug]: Started running model dbt_02_21_26_staging.stg_customer_orders
+18:41:20.527790 [debug]: Query executed on node model.dbt_02_21_26_project.stg_customer_orders:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26_staging`.INFORMATION_SCHEMA.TABLES
+18:41:20.532398 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.stg_customer_orders"
+18:41:22.609286 [debug]: Query executed on node model.dbt_02_21_26_project.stg_customer_orders:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.stg_customer_orders", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26_staging`.`stg_customer_orders`
+  OPTIONS()
+  as with customers as (
+
+    select * from `dbt-bigquery-integration`.`dbt_02_21_26`.`dev_customers`
+
+),
+
+orders as (
+
+    select * from `dbt-bigquery-integration`.`dbt_02_21_26`.`dev_orders`
+
+),
+
+customer_orders as (
+
+    select
+        customer_id,
+        min(order_date) as first_order_date,
+        max(order_date) as most_recent_order_date,
+        count(order_id) as number_of_orders
+
+    from orders
+
+    group by 1
+
+),
+
+final as (
+
+    select
+        customers.customer_id,
+        customers.first_name,
+        customers.last_name,
+        customer_orders.first_order_date,
+        customer_orders.most_recent_order_date,
+        coalesce(customer_orders.number_of_orders, 0) as number_of_orders
+
+    from customers
+
+    left join customer_orders using (customer_id)
+
+)
+
+select * from final;
+
+
+18:41:22.610958 [info ]:  Succeeded [  4.61s] model dbt_02_21_26_staging.stg_customer_orders (view)
+18:41:22.612234 [debug]: Finished running [  4.54s] model dbt_02_21_26_staging.stg_customer_orders [success]
+18:41:22.612259 [info ]: Finished running [  4.54s] (1 nodes, 0 skipped, 0 errors)
+18:41:22.669682 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' successfully for target 'dev' [8.6s]
+Processed: 1 model
+Summary: 1 total | 1 success
+==================== 2026-02-22T20:04:15.953587Z | 019c86f3-e1cf-77a2-9ebe-2a080f375b58 ====================
+20:04:15.953731 [info ]: dbt-fusion 2.0.0-preview.126
+20:04:15.953981 [info ]: Started loading project
+20:04:15.961473 [info ]: Loading profiles.yml
+20:04:15.984678 [info ]: Loading packages.yml
+20:04:15.984882 [debug]:    Started loading packages
+20:04:15.990000 [debug]:     Loaded [  0.01s] packages
+20:04:15.991294 [info ]: Finished loading project [  0.04s]
+20:04:15.992028 [info ]: Started parsing
+20:04:16.058152 [debug]: Finished parsing models/schema.yml [  0.00s]
+20:04:16.060138 [debug]: Finished parsing models/dev/dev_customers.sql [  0.00s]
+20:04:16.060571 [debug]: Finished parsing models/dev/dev_orders.sql [  0.00s]
+20:04:16.061032 [debug]: Finished parsing models/staging/stg_customer_orders.sql [  0.00s]
+20:04:16.063614 [info ]: Finished parsing [  0.07s]
+20:04:16.064169 [info ]: Started scheduling
+20:04:16.064309 [info ]: Finished scheduling [  0.00s]
+20:04:16.065232 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "dbt-bigquery-integration", schema: "dbt_02_21_26", table: "dev_customers" }) and interval: None
+20:04:16.065307 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "dbt-bigquery-integration", schema: "dbt_02_21_26", table: "dev_orders" }) and interval: None
+20:04:16.066783 [info ]: Started deferring state
+20:04:16.066805 [info ]: Finished deferring state [  0.00s]
+20:04:16.068309 [info ]: Started downloading schemas
+20:04:16.068372 [debug]:    Started downloading relations
+20:04:16.068467 [debug]:   Finished [  0.00s] downloading relations
+20:04:16.068494 [info ]: Finished downloading schemas [  0.00s]
+20:04:16.344655 [info ]: Started building task graph
+20:04:16.344835 [info ]: Finished building task graph [  0.00s]
+20:04:19.891689 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "example_analytics", "target_name": "dev"} */
+
+    select distinct schema_name from `dbt-bigquery-integration`.INFORMATION_SCHEMA.SCHEMATA;
+  
+20:04:19.892082 [info ]: Started rendering (1 nodes)
+20:04:19.892138 [info ]: Started model dbt_02_21_26_staging.stg_customer_orders
+20:04:19.892164 [debug]: Started rendering model dbt_02_21_26_staging.stg_customer_orders
+20:04:19.893275 [debug]: Compiled SQL for node model.dbt_02_21_26_project.stg_customer_orders at target/compiled/models/staging/stg_customer_orders.sql
+20:04:19.893382 [debug]: Finished rendering [  0.00s] model dbt_02_21_26_staging.stg_customer_orders [success]
+20:04:19.893399 [info ]: Finished rendering [  0.00s] (1 nodes, 0 skipped, 0 errors)
+20:04:19.893419 [info ]: Started analyzing (1 nodes)
+20:04:19.893431 [debug]: Started analyzing model dbt_02_21_26_staging.stg_customer_orders
+20:04:19.952086 [debug]: Finished analyzing [  0.06s] model dbt_02_21_26_staging.stg_customer_orders [success]
+20:04:19.952115 [info ]: Finished analyzing [  0.06s] (1 nodes, 0 skipped, 0 errors)
+20:04:19.952141 [info ]: Started running (1 nodes)
+20:04:19.952156 [debug]: Started running model dbt_02_21_26_staging.stg_customer_orders
+20:04:23.003967 [debug]: Query executed on node model.dbt_02_21_26_project.stg_customer_orders:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26_staging`.INFORMATION_SCHEMA.TABLES
+20:04:23.007830 [debug]: Writing runtime sql for node "model.dbt_02_21_26_project.stg_customer_orders"
+20:04:25.462268 [debug]: Query executed on node model.dbt_02_21_26_project.stg_customer_orders:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.dbt_02_21_26_project.stg_customer_orders", "profile_name": "example_analytics", "target_name": "dev"} */
+
+
+  create or replace view `dbt-bigquery-integration`.`dbt_02_21_26_staging`.`stg_customer_orders`
+  OPTIONS()
+  as with customers as (
+
+    select * from `dbt-bigquery-integration`.`dbt_02_21_26`.`dev_customers`
+
+),
+
+orders as (
+
+    select * from `dbt-bigquery-integration`.`dbt_02_21_26`.`dev_orders`
+
+),
+
+customer_orders as (
+
+    select
+        customer_id,
+        min(order_date) as first_order_date,
+        max(order_date) as most_recent_order_date,
+        count(order_id) as number_of_orders
+
+    from orders
+
+    group by 1
+
+),
+
+final as (
+
+    select
+        customers.customer_id,
+        customers.first_name,
+        customers.last_name,
+        customer_orders.first_order_date,
+        customer_orders.most_recent_order_date,
+        coalesce(customer_orders.number_of_orders, 0) as number_of_orders
+
+    from customers
+
+    left join customer_orders using (customer_id)
+
+)
+
+select * from final;
+
+
+20:04:25.463872 [info ]:  Succeeded [  5.57s] model dbt_02_21_26_staging.stg_customer_orders (view)
+20:04:25.463944 [debug]: Finished running [  5.51s] model dbt_02_21_26_staging.stg_customer_orders [success]
+20:04:25.463956 [info ]: Finished running [  5.51s] (1 nodes, 0 skipped, 0 errors)
+20:04:25.509731 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' successfully for target 'dev' [9.6s]
+Processed: 1 model
+Summary: 1 total | 1 success

@@ -23,7 +23,7 @@ clean-targets:
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 models:
-  example_analytics:
+  dbt_02_21_26_project:
     # Config indicated by + and applies to all files under models/staging/
     
     staging:
