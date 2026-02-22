@@ -5,7 +5,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'example_analytics'
+profile: 'dbt_02_21_26_profile'
 
 # These configurations specify where dbt should look for different types of files.
 model-paths: ["models"]
