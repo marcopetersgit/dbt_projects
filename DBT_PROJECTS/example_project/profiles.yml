@@ -12,7 +12,7 @@ example_analytics:
       location: 'US'
       priority: interactive
       retries: 1
-      keyfile: '/home/hanse/Documents/BigQuery/keyfile.json'
+      keyfile: '/home/hanse/Downloads/dbt-bigquery-integration-0f59db2aa1b8.json'
     
     prod:
       type: bigquery
@@ -23,5 +23,5 @@ example_analytics:
       timeout_seconds: 300
       location: 'US'
       priority: interactive
-      keyfile: '/home/hanse/Documents/BigQuery/keyfile.json'
+      keyfile: '/home/hanse/Downloads/dbt-bigquery-integration-0f59db2aa1b8.json'
 

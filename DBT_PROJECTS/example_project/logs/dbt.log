@@ -148,3 +148,69 @@ Finished 'deps' with 1 warning and 1 error [265ms]
 21:28:09.881612 [info ]: 
 ==================== Execution Summary =====================
 Finished 'deps' with 2 warnings for target 'dev' [864ms]
+==================== 2026-02-21T22:37:14.443967Z | 019c8259-9349-7b61-9c55-d1c9efccd6a1 ====================
+22:37:14.444116 [info ]: dbt-fusion 2.0.0-preview.126
+22:37:14.444796 [info ]: Started loading project
+22:37:14.450292 [info ]: Loading profiles.yml
+22:37:14.470871 [info ]: Loading packages.yml
+22:37:14.471315 [debug]:    Started loading packages
+22:37:14.477475 [debug]:     Loaded [  0.01s] packages
+22:37:14.478780 [info ]: Finished loading project [  0.03s]
+22:37:14.479719 [info ]: Started parsing
+22:37:14.602773 [debug]: Finished parsing models/schema.yml [  0.00s]
+22:37:14.605960 [debug]: Finished parsing models/customers.sql [  0.00s]
+22:37:14.608407 [info ]: Finished parsing [  0.13s]
+22:37:14.608725 [info ]: Started scheduling
+22:37:14.609285 [info ]: Finished scheduling [  0.00s]
+22:37:14.612250 [info ]: Started deferring state
+22:37:14.612371 [info ]: Finished deferring state [  0.00s]
+22:37:14.614215 [info ]: Started downloading schemas
+22:37:14.614309 [debug]:    Started downloading relations
+22:37:14.614453 [debug]:   Finished [  0.00s] downloading relations
+22:37:14.614488 [info ]: Finished downloading schemas [  0.00s]
+22:37:14.927060 [info ]: Started building task graph
+22:37:14.927252 [info ]: Finished building task graph [  0.00s]
+22:37:18.754662 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "example_analytics", "target_name": "dev"} */
+
+    select distinct schema_name from `dbt-bigquery-integration`.INFORMATION_SCHEMA.SCHEMATA;
+  
+22:37:18.755830 [info ]: Started rendering (1 nodes)
+22:37:18.756065 [info ]: Started model dbt_02_21_26.customers
+22:37:18.756127 [debug]: Started rendering model dbt_02_21_26.customers
+22:37:18.758801 [debug]: Compiled SQL for node model.dbt_02_21_26_project.customers at target/compiled/models/customers.sql
+22:37:18.758919 [debug]: Finished rendering [  0.00s] model dbt_02_21_26.customers [success]
+22:37:18.759043 [info ]: Finished rendering [  0.00s] (1 nodes, 0 skipped, 0 errors)
+22:37:18.759153 [info ]: Started analyzing (1 nodes)
+22:37:18.759269 [debug]: Started analyzing model dbt_02_21_26.customers
+22:37:19.093620 [debug]: Schema hydration: registering 1 schemas from db_runner
+22:37:19.093645 [debug]: Schema hydration: parsing FQN string '`dbt-bigquery-integration`.`dbt_02_21_26`.`customers`'
+22:37:19.093665 [debug]: Schema hydration: registering cfqn=dbt-bigquery-integration.dbt_02_21_26.customers (catalog='dbt-bigquery-integration', schema='dbt_02_21_26', table='customers')
+22:37:19.094010 [debug]: Schema hydration: registration succeeded for dbt-bigquery-integration.dbt_02_21_26.customers, exists_check=true
+22:37:19.108736 [debug]: Finished analyzing [  0.35s] model dbt_02_21_26.customers [success]
+22:37:19.108811 [info ]: Finished analyzing [  0.35s] (1 nodes, 0 skipped, 0 errors)
+22:37:19.108884 [info ]: Started running (1 nodes)
+22:37:19.108943 [debug]: Started running model dbt_02_21_26.customers
+22:37:22.424646 [debug]: Query executed on node model.dbt_02_21_26_project.customers:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `dbt-bigquery-integration`.`dbt_02_21_26`.INFORMATION_SCHEMA.TABLES
+22:37:22.429419 [error]: dbt1501: Error executing materialization macro 'dbt_bigquery.materialization_view_bigquery' for model model.dbt_02_21_26_project.customers: Failed to eval the compiled Jinja expression invalid operation: Compilation Error: Trying to create view `dbt-bigquery-integration`.`dbt_02_21_26`.`customers`, but it currently exists as a table. Either drop `dbt-bigquery-integration`.`dbt_02_21_26`.`customers` manually, or run dbt with `--full-refresh` and dbt will drop it for you.
+(in compiled/models/customers.sql:1:13)
+(in dbt_internal_packages/dbt-bigquery/macros/materializations/view.sql:15:24)
+(in dbt_internal_packages/dbt-bigquery/macros/relations/view/replace.sql:29:5)
+(in dbt_internal_packages/dbt-bigquery/macros/relations/view/replace.sql:48:5)
+(in dbt_internal_packages/dbt-bigquery/macros/materializations/view.sql:6:7)
+  --> compiled/models/customers.sql:1:13
+22:37:22.429864 [info ]:     Failed [  3.67s] model dbt_02_21_26.customers (view)
+22:37:22.430297 [debug]: Finished running [  3.32s] model dbt_02_21_26.customers [error]
+22:37:22.430760 [info ]: Finished running [  3.32s] (1 nodes, 0 skipped, 1 errors)
+22:37:22.531372 [info ]: 
+==================== Execution Summary =====================
+Finished 'run' with 1 error for target 'dev' [8.1s]
+Processed: 1 model
+Summary: 1 total | 1 error
